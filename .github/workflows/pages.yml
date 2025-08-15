@@ -24,13 +24,34 @@ jobs:
         with:
           bundler-cache: true
 
-      - name: Install gems
-        run: bundle install --jobs 4 --retry 3
+      - name: Compute url/baseurl only if missing
+        shell: bash
+        run: |
+          # 1) Detect whether url/baseurl in _config.yml are empty or unset
+          ruby -ryaml -e 'c=File.exist?("_config.yml") ? (YAML.load_file("_config.yml") || {}) : {};
+            puts "HAS_URL=#{c["url"].to_s.strip.empty? ? 0 : 1}";
+            puts "HAS_BASEURL=#{c["baseurl"].to_s.strip.empty? ? 0 : 1}"' > cfg.flags
+          source cfg.flags
+
+          # 2) Compute defaults from owner/repo
+          OWNER="${{ github.repository_owner }}"
+          REPO="${{ github.event.repository.name }}"
+          URL="https://${OWNER}.github.io"
+          BASE="/${REPO}"
+          if [[ "$REPO" == "${OWNER}.github.io" ]]; then BASE=""; fi
+
+          # 3) Write to the supplemental config only when missing; create the file even if it ends up empty
+          : > _config_ci.yml
+          if [[ "$HAS_URL" -eq 0 ]]; then echo "url: \"$URL\"" >> _config_ci.yml; fi
+          if [[ "$HAS_BASEURL" -eq 0 ]]; then echo "baseurl: \"$BASE\"" >> _config_ci.yml; fi
+
+          echo "Injected (may be empty):"
+          cat _config_ci.yml || true
 
       - name: Build site
         env:
           JEKYLL_ENV: production
-        run: bundle exec jekyll build --trace
+        run: bundle exec jekyll build --config _config.yml,_config_ci.yml --destination _site --trace
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
