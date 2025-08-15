@@ -1,0 +1,9 @@
+{% assign people = site.data.staff.people %}
+<ul class="staff-list">
+  {% for p in people %}
+  <li class="staff-list__item">
+    <strong>{{ p.name }}</strong>
+    {% if p.role %}<span class="staff-list__role"> · {{ p.role }}</span>{% endif %}
+  </li>
+  {% endfor %}
+</ul>

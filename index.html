@@ -1,0 +1,36 @@
+---
+layout: default
+title: Home
+tagline: "Build locally in Docker. Ship anywhere."
+---
+
+<header class="hero">
+  <h1 class="hero__title">{{ site.title }}</h1>
+  <p class="hero__tagline">{{ page.tagline }}</p>
+  <a class="btn" href="https://github.com/Yoichi-z/jekyll-docker-starter">View on GitHub</a>
+</header>
+
+<section class="card">
+  <h2>Quick Start</h2>
+  <pre><code>git clone https://github.com/Yoichi-z/jekyll-docker-starter.git
+cd jekyll-docker-starter
+docker compose up -d --build
+# → http://localhost:4000</code></pre>
+</section>
+
+<section class="grid">
+  <div class="card">
+    <h3>Zero Setup</h3>
+    <p>No Ruby on host. Everything runs in Docker.</p>
+  </div>
+  <div class="card">
+    <h3>Live Reload</h3>
+    <p>Edit → save → browser refreshes automatically.</p>
+  </div>
+  <div class="card">
+    <h3>Pages-Ready</h3>
+    <p>GitHub Actions workflow included for deploy.</p>
+  </div>
+</section>
+
+{% include alert.html type="info" text="This is a starter. Replace this copy and structure as your site grows." %}

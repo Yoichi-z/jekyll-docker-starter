@@ -1,0 +1,21 @@
+# Normalize all text files to LF on checkout (cross-platform safe)
+* text=auto eol=lf
+
+# Always treat these as text with LF
+*.sh   text eol=lf
+Dockerfile text eol=lf
+*.yml  text eol=lf
+*.yaml text eol=lf
+*.rb   text eol=lf
+*.md   text eol=lf
+*.html text eol=lf
+*.scss text eol=lf
+*.css  text eol=lf
+*.js   text eol=lf
+
+# Binary files (no EOL conversion)
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary

@@ -1,0 +1,39 @@
+{% comment %}
+  _includes/nav.html
+  - Data source: _data/nav.yml  ( [{ title, url }, ...] )
+  - External links (url containing "://") open in new tab
+  - Active page gets aria-current="page"
+{% endcomment %}
+<nav class="site-nav" role="navigation" aria-label="Primary">
+  <div class="container">
+  <ul class="site-nav__list">
+    {% assign current = page.url | relative_url %}
+    {% for item in site.data.nav %}
+      {% assign href = item.url %}
+      {% if href contains '://' %}
+        {% assign url = href %}
+        {% assign external = true %}
+      {% else %}
+        {% assign url = href | relative_url %}
+        {% assign external = false %}
+      {% endif %}
+
+      {% assign is_active = false %}
+      {% if external == false and current == url %}
+        {% assign is_active = true %}
+      {% endif %}
+
+      <li class="site-nav__item">
+        <a
+          class="site-nav__link{% if is_active %} is-active{% endif %}"
+          href="{{ url }}"
+          {% if is_active %}aria-current="page"{% endif %}
+          {% if external %}target="_blank" rel="noopener"{% endif %}
+        >
+          {{ item.title }}
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+  </div>
+</nav>

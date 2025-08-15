@@ -1,0 +1,4 @@
+{% comment %} type: info | warning | success {% endcomment %}
+<div class="alert alert-{{ include.type | default: 'info' }}">
+  {{ include.text }}
+</div>

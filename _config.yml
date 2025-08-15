@@ -1,0 +1,42 @@
+title: "Jekyll Docker Starter"
+description: "Minimal Jekyll starter for local development in Docker with live reload."
+lang: en
+timezone: Asia/Tokyo
+
+# Set these in your fork if you use absolute URLs
+url: ""        # e.g. https://yourname.github.io
+baseurl: ""    # e.g. /your-repo
+
+markdown: kramdown
+theme: null
+
+plugins:
+  - jekyll-seo-tag
+  - jekyll-feed
+  - jekyll-sitemap
+
+exclude:
+  - node_modules
+  - vendor
+  - Gemfile.lock
+  - docker
+  - .github
+  - README.md
+  - examples
+
+# ----- Optional: Collections Example (disabled by default) -----
+# To enable, uncomment this block and move files from examples/collections
+# into your site root (see examples/collections/README.md).
+#
+# collections:
+#   authors:
+#     output: true
+#     permalink: /authors/:name/
+#
+# defaults:
+#   - scope:
+#       path: ""
+#       type: "authors"
+#     values:
+#       layout: "author"
+# ---------------------------------------------------------------

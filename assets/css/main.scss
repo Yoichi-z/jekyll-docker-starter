@@ -1,0 +1,21 @@
+---
+---
+
+@use "variables" as *;
+@use "base";
+
+.badge {
+  display: inline-block;
+  padding: .15rem .4rem;
+  border: 1px solid currentColor;
+  border-radius: .25rem;
+}
+.badge-primary {
+  color: white;
+  background: $brand-color;
+  border-color: $brand-color;
+}
+
+.alert { padding: .75rem 1rem; border: 1px solid; margin: 1rem 0; }
+.alert-warning { background: #fff8e1; border-color: #f0c36d; }
+.alert-info { background: #eef6ff; border-color: #8db6ff; }

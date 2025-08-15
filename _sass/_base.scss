@@ -1,0 +1,46 @@
+@use "variables";
+
+html { font-family: system-ui, -apple-system, Segoe UI, Roboto, "Noto Sans", "Hiragino Kaku Gothic ProN", "Yu Gothic", "Noto Sans CJK JP", sans-serif; }
+body { margin: 0; color: var(--fg); background: var(--bg); line-height: 1.6; }
+main { max-width: 960px; margin: 2rem auto; padding: 0 1rem; }
+
+.hero { text-align: center; padding: 3rem 1rem; }
+.hero__title { font-size: clamp(2rem, 4vw, 3rem); margin: 0.25rem 0; }
+.hero__tagline { color: var(--muted); margin: 0.5rem 0 1.25rem; }
+
+.btn {
+  display: inline-block; padding: .6rem 1rem; border-radius: .75rem;
+  background: var(--brand); color: #fff; text-decoration: none; font-weight: 600;
+}
+
+.grid { display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr)); margin: 1.5rem 0; }
+
+.card { background: var(--card); border: 1px solid var(--border); border-radius: .75rem; padding: 1rem 1.25rem; }
+
+.alert { border: 1px solid var(--border); border-left-width: .4rem; border-radius: .5rem; padding: .8rem 1rem; background: #fff; }
+.alert-info { border-left-color: #0ea5e9; }
+.alert-warning { border-left-color: #f59e0b; }
+.alert-success { border-left-color: #22c55e; }
+
+pre { background: #0b1020; color: #e2e8f0; padding: .9rem; border-radius: .75rem; overflow: auto; }
+code { font-family: ui-monospace, SFMono-Regular, Menlo, Consolas, "Liberation Mono", monospace; }
+
+.site-footer { text-align: center; color: var(--muted); margin: 2rem 0 3rem; }
+
+.site-nav { padding: .75rem 1rem; }
+.site-nav__list { margin: 0; padding: 0; list-style: none; display: flex; gap: .75rem; flex-wrap: wrap; }
+.site-nav__link { text-decoration: none; color: var(--fg); padding: .25rem .5rem; border-radius: .5rem; }
+.site-nav__link:is(:hover,:focus) { background: var(--card); }
+.site-nav__link.is-active { font-weight: 700; border: 1px solid var(--border); }
+
+.site-nav {
+  max-width: 960px;
+  margin: 0 auto;
+  padding: .75rem 1rem;
+}
+
+.site-footer {
+  max-width: 960px;
+  margin: 2rem auto 3rem;
+  padding: 0 1rem;
+}

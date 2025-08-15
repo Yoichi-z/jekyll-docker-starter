@@ -1,0 +1,15 @@
+services:
+  jekyll:
+    build: .
+    # user: "${UID:-1000}:${GID:-1000}"
+    working_dir: /site
+    volumes:
+      - .:/site
+      - bundle:/usr/local/bundle
+    ports:
+      - "4000:4000" # Jekyll
+      - "35729:35729" # LiveReload
+    environment:
+      JEKYLL_ENV: development
+volumes:
+  bundle:
