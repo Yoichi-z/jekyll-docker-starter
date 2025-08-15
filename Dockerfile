@@ -1,4 +1,4 @@
-FROM ruby:3.4.5-bookworm
+FROM ruby:3.4.5-slim-bookworm
 
 RUN apt-get update -y && apt-get install -y --no-install-recommends \
     build-essential git \
