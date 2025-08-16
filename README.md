@@ -21,6 +21,7 @@ git clone https://github.com/Yoichi-z/jekyll-docker-starter.git
 cd jekyll-docker-starter
 docker compose up -d --build
 # → http://localhost:4000  (LiveReload on :35729)
+# Please note that changes to _config.yml will not trigger the live reload. You will need to restart the server to see these changes reflected on your site.
 ```
 
 Stop:
@@ -162,12 +163,6 @@ If you don’t need collections, simply ignore `examples/` (it’s excluded from
 
 - **Windows path sharing**  
   In Docker Desktop, ensure your project folder is allowed under Settings → Resources → File Sharing.
-
----
-
-## Contributing
-
-Issues and PRs are welcome. Keep the “starter” scope in mind: small, readable, and easy to extend.
 
 ---
 
