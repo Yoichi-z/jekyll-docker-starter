@@ -166,12 +166,6 @@ If you don’t need collections, simply ignore `examples/` (it’s excluded from
 
 ---
 
-## Contributing
-
-Issues and PRs are welcome. Keep the “starter” scope in mind: small, readable, and easy to extend.
-
----
-
 ## License & Credits
 
 - Built with **Jekyll** — see <https://jekyllrb.com/>.
